@@ -643,6 +643,18 @@ Dataset citations:
 Built with  🧠  for 1,000,000,000+ people who deserve earlier answers.
 ```
 
+---
+ 
+## ◈ Team
+ 
+| | Contributor | Role |
+|---|---|---|
+| 🧠 | **Aadithya** | ML Architecture · Backend · Biomarker Models · Deployment |
+| 🎨 | **Yadunandan** | Frontend · UI/UX · React Native · Agent Workflow Design |
+| 🔬 | **Kenisha** | Research · Dataset Curation · Clinical Validation · Documentation |
+
+ ---
+
 **SilentSigns · Technoverse 2026 · Life Sciences → Digital Biomarkers**
 
 </div>
