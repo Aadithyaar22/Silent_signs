@@ -36,17 +36,17 @@ Parkinson's, Alzheimer's, and depression all share a cruel trait: **the earliest
 
 ## 📋 Table of Contents
 
-- [How It Works](#-how-it-works)
-- [Live Demo](#-live-demo)
-- [Architecture](#-architecture)
-- [Datasets & Model Performance](#-datasets--model-performance)
-- [Tech Stack](#-tech-stack)
-- [API Reference](#-api-reference)
-- [Screenshot](#-screenshot)
-- [Local Development](#-local-development)
-- [Deploying Your Own Copy](#-deploying-your-own-copy)
-- [Project Structure](#-project-structure)
-- [Roadmap](#-roadmap)
+- [How It Works](#user-content--how-it-works)
+- [Live Demo](#user-content--live-demo)
+- [Architecture](#user-content-️-architecture)
+- [Datasets & Model Performance](#user-content--datasets--model-performance)
+- [Tech Stack](#user-content-️-tech-stack)
+- [API Reference](#user-content--api-reference)
+- [Screenshot](#user-content--screenshot)
+- [Local Development](#user-content--local-development)
+- [Deploying Your Own Copy](#user-content--deploying-your-own-copy)
+- [Project Structure](#user-content--project-structure)
+- [Roadmap](#user-content-️-roadmap)
 
 <br/>
 
