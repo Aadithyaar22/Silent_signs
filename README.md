@@ -56,11 +56,11 @@ Four short, passive assessment steps feed a live FastAPI inference API — no au
 
 ```mermaid
 flowchart LR
-    A["⌨️ Step 1\nKeystroke Dynamics\nWPM · IKI variance · pauses"] --> E[["⚡ NeuralScreen\nInference API"]]
-    B["📝 Step 2\nSpeech Biomarkers\nLexical diversity · fluency"] --> E
-    C["👆 Step 3\nMotor Coordination\nTap rate · rhythm consistency"] --> E
-    D["🗒️ Step 4\nSymptom Questionnaire\nSelf-reported calibration"] --> E
-    E --> F["📊 Multi-Condition\nRisk Report"]
+    A["⌨️ Step 1<br/>Keystroke Dynamics<br/>WPM · IKI variance · pauses"] --> E[["⚡ NeuralScreen<br/>Inference API"]]
+    B["📝 Step 2<br/>Speech Biomarkers<br/>Lexical diversity · fluency"] --> E
+    C["👆 Step 3<br/>Motor Coordination<br/>Tap rate · rhythm consistency"] --> E
+    D["🗒️ Step 4<br/>Symptom Questionnaire<br/>Self-reported calibration"] --> E
+    E --> F["📊 Multi-Condition<br/>Risk Report"]
     F --> G["Parkinson's"]
     F --> H["Depression"]
     F --> I["Alzheimer's"]
@@ -91,32 +91,32 @@ Hosted free on Render, auto-redeploying on every push to `main`. First request a
 ```mermaid
 flowchart TB
     subgraph Client["Browser"]
-        UI["React + Vite\nSilentSignsAgent"]
+        UI["React + Vite<br/>SilentSignsAgent"]
     end
 
     subgraph Backend["FastAPI Service (Render Web Service)"]
-        API["main.py\nREST endpoints"]
-        DM["DatasetManager\nloaders/datasets.py"]
-        DN["DementiaNet loader\nloaders/dementianet.py"]
-        BP["BiomarkerPredictor\nmodels/predictor.py"]
+        API["main.py<br/>REST endpoints"]
+        DM["DatasetManager<br/>loaders/datasets.py"]
+        DN["DementiaNet loader<br/>loaders/dementianet.py"]
+        BP["BiomarkerPredictor<br/>models/predictor.py"]
     end
 
-    subgraph Data["Datasets — real, with synthetic fallback"]
+    subgraph Data["Datasets - real, with synthetic fallback"]
         UCI[("UCI Parkinson's Voice")]
         NQ[("NeuroQWERTY MIT-CSXPD")]
         PN[("PhysioNet Gait PD")]
         DNET[("DementiaNet")]
     end
 
-    UI -- "POST /analyze\nGET /health" --> API
+    UI -- "POST /analyze<br/>GET /health" --> API
     API --> BP
     BP --> DM
     BP --> DN
-    DM -.download on startup.-> UCI
-    DM -.download on startup.-> NQ
-    DM -.local or synthetic.-> PN
-    DN -.download on startup.-> DNET
-    BP -- "RandomForest · GBM · SVC\n(scikit-learn pipelines)" --> API
+    DM -. "download on startup" .-> UCI
+    DM -. "download on startup" .-> NQ
+    DM -. "local or synthetic" .-> PN
+    DN -. "download on startup" .-> DNET
+    BP -- "RandomForest · GBM · SVC<br/>(scikit-learn pipelines)" --> API
     API -- "RiskReport JSON" --> UI
 
     style UI fill:#0b1845,color:#d8ecff,stroke:#00d4ff
