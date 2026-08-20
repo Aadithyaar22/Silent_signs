@@ -18,6 +18,8 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
+
 
 class DatasetManager:
     def __init__(self):
@@ -72,7 +74,7 @@ class DatasetManager:
         # Pre-computed aggregate statistics from NeuroQWERTY paper
         # (Giancardo et al., Scientific Reports 2016)
         # If you have the dataset downloaded, put it at /data/neuroqwerty/
-        local_path = "/data/neuroqwerty/gt.txt"
+        local_path = os.path.join(DATA_DIR, "neuroqwerty", "gt.txt")
         if os.path.exists(local_path):
             try:
                 df = pd.read_csv(local_path, sep="\t")
@@ -109,7 +111,7 @@ class DatasetManager:
         https://physionet.org/content/gaitpdb/1.0.0/
         93 PD patients + 73 healthy controls
         """
-        local_path = "/data/physionet_gait/"
+        local_path = os.path.join(DATA_DIR, "physionet_gait") + os.sep
         if os.path.exists(local_path):
             try:
                 dfs = []
@@ -203,7 +205,7 @@ class DatasetManager:
         Kaggle: https://www.kaggle.com/datasets/rabieelkharoua/alzheimers-disease-dataset
         Download the CSV and put it at /data/alzheimers_disease.csv
         """
-        local_path = "/data/alzheimers_disease.csv"
+        local_path = os.path.join(DATA_DIR, "alzheimers_disease.csv")
         if os.path.exists(local_path):
             try:
                 df = pd.read_csv(local_path)
@@ -240,7 +242,7 @@ class DatasetManager:
         Primary: RAVDESS emotional speech patterns (zenodo.org/record/1188976)
         Secondary: Published DAIC-WOZ statistics
         """
-        ravdess_path = "/data/ravdess_features.csv"
+        ravdess_path = os.path.join(DATA_DIR, "ravdess_features.csv")
         if os.path.exists(ravdess_path):
             try:
                 df = pd.read_csv(ravdess_path)
