@@ -3,6 +3,14 @@
 
 ---
 
+## 🔴 Live Demo
+- **App:** https://silentsigns-frontend.onrender.com
+- **API:** https://silentsigns-api.onrender.com ([health](https://silentsigns-api.onrender.com/health) · [docs](https://silentsigns-api.onrender.com/docs))
+
+Hosted on Render's free tier — auto-redeploys on every push to `main`. First load after 15 min of inactivity takes ~30s while the backend cold-starts.
+
+---
+
 ## Project Structure
 
 ```
@@ -71,48 +79,27 @@ UCI Parkinson's and DementiaNet are downloaded automatically on startup.
 
 ## Step 3 — Deploy to Render (Free Tier)
 
+`render.yaml` at the repo root already defines both services, so Render can deploy them together via a **Blueprint** — no manual field-filling needed.
+
 ### 3a. Push to GitHub
 ```bash
-git init
 git add .
-git commit -m "SilentSigns MVP - Technoverse 2026"
-git remote add origin https://github.com/YOUR_USERNAME/silentsigns.git
-git push -u origin main
+git commit -m "Your commit message"
+git push origin main
 ```
+(Repo: https://github.com/Aadithyaar22/Silent_signs)
 
-### 3b. Deploy Backend on Render
+### 3b. Deploy via Render Blueprint
 
 1. Go to https://render.com → Sign up / Log in
-2. Click **"New +"** → **"Web Service"**
-3. Connect your GitHub repo
-4. Fill in:
-   - **Name:** `silentsigns-api`
-   - **Root Directory:** `backend`
-   - **Runtime:** `Python 3`
-   - **Build Command:** `pip install -r requirements.txt`
-   - **Start Command:** `uvicorn main:app --host 0.0.0.0 --port $PORT`
-   - **Plan:** Free
-   - **Region:** Singapore (closest to Bangalore)
-5. Click **"Create Web Service"**
-6. Wait ~3-4 minutes for build + model training
-7. Note your URL: `https://silentsigns-api.onrender.com`
+2. Click **"New +"** → **"Blueprint"**
+3. Select the `Aadithyaar22/Silent_signs` repo
+4. Render detects `render.yaml` and shows both services (`silentsigns-api`, `silentsigns-frontend`) — click **"Apply"**
+5. Wait ~3-4 minutes for the backend build (installs deps + trains models) and ~2 minutes for the frontend build
 
-### 3c. Deploy Frontend on Render
+Auto-deploy is on by default — every push to `main` triggers a fresh redeploy of both services.
 
-1. Click **"New +"** → **"Static Site"**
-2. Connect same GitHub repo
-3. Fill in:
-   - **Name:** `silentsigns-frontend`
-   - **Root Directory:** `frontend`
-   - **Build Command:** `npm install && npm run build`
-   - **Publish Directory:** `dist`
-4. Add environment variable:
-   - **Key:** `VITE_API_URL`
-   - **Value:** `https://silentsigns-api.onrender.com`
-5. Click **"Create Static Site"**
-6. Wait ~2 minutes
-
-### 3d. Your Live URLs
+### 3c. Your Live URLs
 - Frontend: `https://silentsigns-frontend.onrender.com`
 - Backend API: `https://silentsigns-api.onrender.com`
 - API Docs: `https://silentsigns-api.onrender.com/docs`
